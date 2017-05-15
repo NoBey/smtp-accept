@@ -20,9 +20,7 @@ var server = smtp.createServer({
 
   req.on('to', function(to, ack) {
     console.log(req.from + '-->' + to);
-    var domain = to.split('@')[1] || Domain[0];
-    if (Domain.indexOf(domain.toLowerCase())===-1) ack.accept()
-    else ack.reject()
+     ack.accept()
   });
 
   req.on('message', function(stream, ack) {
