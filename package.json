@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/NoBey/smtp-accept#readme",
   "dependencies": {
+    "mailparser": "^2.0.5",
     "smtp-protocol": "^2.4.7"
   }
 }
