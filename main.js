@@ -4,14 +4,6 @@ var MailParser = require("mailparser").MailParser;
 var mailparser = new MailParser();
 
 
-var mailOptions = {
-  from: 'nobey@nobey.cn',
-  to: '786964300@qq.com',
-  subject: 'Hello',
-  text: 'Hello world',
-  html: '<b>Hello world</b>'
-};
-
 var Domain = ['nobey.cn', 'youngon.cn']
 var server = smtp.createServer({
   domain: 'nobey.cn'
@@ -28,7 +20,7 @@ var server = smtp.createServer({
 
   req.on('to', function(to, ack) {
     console.log(req.from + '-->' + to);
-    var domain = to.split('@')[1] || Domain;
+    var domain = to.split('@')[1] || Domain[0];
     if (Domain.indexOf(domain.toLowerCase())===-1) ack.accept()
     else ack.reject()
   });
